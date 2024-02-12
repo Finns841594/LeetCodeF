@@ -1,25 +1,16 @@
-function plusOne(digits: number[]): number[] {
-    let isAddingTen = false
-    const lastIndex = digits.length - 1
-    digits[lastIndex] = digits[lastIndex] + 1
-    if (digits[lastIndex] > 9) {
-        digits[lastIndex] = 0
-        if  (lastIndex === 0 ){
-            digits.unshift(1)
-            return digits
-        }
-        // forward adding one until no more than 10
-        for (let i = lastIndex - 1; i >= 0; i--){
-            digits[i] = digits[i] + 1
-            if (digits[i] > 9 && i === 0) {
-                digits[i] = 0
-                digits.unshift(1)
-            } else if (digits[i] > 9) {
-                digits[i] = 0
-            }else {
-                return digits
-            }
-        }
+function plusOneByIndex(digits: number[],index:number): number[]{
+    if (digits[index] < 9){
+        digits[index] = digits[index] + 1
+        return digits
+    } else if (index === 0) {
+        digits[index] = 0
+        digits.unshift(1)
+        return digits
     }
-    return digits
+    digits[index] = 0
+    return plusOneByIndex(digits, index-1)
+}
+
+function plusOne(digits: number[]): number[] {
+    return plusOneByIndex(digits,digits.length-1)
 };
