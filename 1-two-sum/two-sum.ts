@@ -6,4 +6,5 @@ function twoSum(nums: number[], target: number): number[] {
         }
         tempMap.set(nums[i],i)
     }
+    return [-1,-1]
 };
