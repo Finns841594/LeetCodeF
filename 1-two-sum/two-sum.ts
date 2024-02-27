@@ -1,9 +1,8 @@
 function twoSum(nums: number[], target: number): number[] {
     const tempMap = new Map()
     for (let i = 0; i < nums.length; i++) {
-        const dis = target - nums[i]
-        if (tempMap.has(dis)) {
-            return [i, tempMap.get(dis)]
+        if (tempMap.has(target - nums[i])) {
+            return [tempMap.get(target - nums[i]), i]
         }
         tempMap.set(nums[i],i)
     }
