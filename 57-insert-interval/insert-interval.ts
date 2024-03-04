@@ -28,11 +28,11 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
     let [startIndex, mergingStart, startValue, addFirst] = findInsertIndex(newInterval[0],intervals,true)
     let [endIndex, mergingEnd, endValue, _, addLast] = findInsertIndex(newInterval[1],intervals,false)
 
-    console.log([startIndex, mergingStart, startValue, addFirst],[endIndex, mergingEnd, endValue, addLast])
+    // console.log([startIndex, mergingStart, startValue, addFirst],[endIndex, mergingEnd, endValue, addLast])
 
     const insertIndex = startIndex + (mergingStart ? 0 : 1) - addFirst
     const replaceElement = endIndex - startIndex + (mergingEnd ? 0.5 : -0.5) + (mergingStart ? 0.5 : -0.5) + addLast + addFirst
-    console.log(insertIndex, replaceElement, [startValue, endValue])
+    // console.log(insertIndex, replaceElement, [startValue, endValue])
     intervals.splice(insertIndex, replaceElement, [startValue, endValue])
     return intervals
 };
