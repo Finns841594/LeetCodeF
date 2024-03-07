@@ -2,7 +2,6 @@ function simplifyPath(path: string): string {
     const regex = /\/[a-zA-Z._0-9]+/g
     const paths = path.match(regex)
     if (!paths) return '/'
-    console.log(paths)
     let stack = []
     for (let i = 0; i < paths.length; i++) {
         if (paths[i] === '/..') {
