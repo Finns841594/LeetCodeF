@@ -9,7 +9,6 @@ function hasRepetition(numbers:string[]): boolean {
 function isValidSudoku(board: string[][]): boolean {
     for (let row of board) {
         if (hasRepetition(row)) {
-            console.log('in row', row)
             return false
         }
     }
@@ -22,7 +21,6 @@ function isValidSudoku(board: string[][]): boolean {
     }
     for (let col of cols) {
         if (hasRepetition(col)) {
-            console.log('in col', col)
             return false
         }
     }
@@ -43,7 +41,6 @@ function isValidSudoku(board: string[][]): boolean {
     }
     for (let box of boxes) {
         if (hasRepetition(box)) {
-            console.log('in box', box)
             return false
         }
     }
